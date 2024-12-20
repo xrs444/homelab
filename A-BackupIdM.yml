@@ -1,0 +1,15 @@
+---
+- name: Playbook to backup IPA server to controller
+  hosts: ipaserver
+  become: true
+
+  vars:
+    ipabackup_to_controller: yes
+    ipabackup_keep_on_server: no
+    ipabackup_controller_path:
+    ipabackup_install_packages: yes
+
+
+  roles:
+  - role: freeipa.ansible_freeipa.ipabackup
+    state: present
